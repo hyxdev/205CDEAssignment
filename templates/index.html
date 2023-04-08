@@ -1,85 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>PlateMate</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-        
-        <style>     
-            
-            .jumbotron {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url("Image/hero.jpg");
-            background-size: cover ;
-            height: auto;
-            width: auto;
-            padding: 80px;
-            color: white; 
-            }
+{% extends "layout.html" %}
+{% block content %}
 
-            .section1{
-                background-color: bisque;
-                height: auto;
-                padding: 60px;
-                padding-bottom: auto;
-                
-            }
-            
-            
-            
-        </style>
-        
-      </head>
-      <body>
-        <!--Navigation Bar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">PlateMate</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"  role="button" data-toggle="dropdown" aria-expanded="false">
-                    Catergories
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="western.html">Western</a>
-                    <a class="dropdown-item" href="chinese.html">Chinese</a>
-                    <a class="dropdown-item" href="thai.html">Thai</a>
-                    <a class="dropdown-item" href="catergories.html">All</a>
-
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="order.html">Order Now</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="signin.html">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-      
-      
       <div class="jumbotron jumbotron-fluid">
             <div class="text-center">
                 <h1 class="display-auto">Delivering deliciousness directly to your plate!</h1>
                 <p class="lead">"Delight your taste buds with our fresh, healthy meals delivered straight to your door.</p><br>
                 <div class="col text-center">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Order Now</a>
+                    <a class="btn btn-primary btn-lg" href="catergories" role="button">Order Now</a>
                 
                 </div>
             </div>    
@@ -93,19 +20,19 @@
         <div class="row">
           <div class="col-md-1"> </div>  
           <div class="col-md-3">
-            <a href="#">
+            <a href="spicygrove">
             <img src="Image/spicy cuisine.png" alt="Spicy Grove" class="img-thumbnail">
             <p style="font-size: 30px; text-align: center;">Spicy Grove</p></a>
           </div>
           <div class="col-md-1"> </div> 
           <div class="col-md-3">
-            <a href="#">
+            <a href="coastalcatch">
             <img src="Image/seafood.png" alt="Coastal Catch" class="img-thumbnail">
             <p style="font-size: 30px; text-align: center;">Coastal Catch</p></a>
           </div>
           <div class="col-md-1"> </div>
           <div class="col-md-3">
-            <a href="#">
+            <a href="gardentable">
             <img src="Image/vegetarian.png" alt="Garden Table" class="img-thumbnail">
             <p style="font-size: 30px; text-align: center;">Garden Table</p></a>
           </div>
@@ -115,19 +42,19 @@
         <div class="row">
             <div class="col-md-1"> </div>  
             <div class="col-md-3">
-            <a href="#">
+            <a href="smokehousegrill">
               <img src="Image/barbecue.png" alt="Smokehouse Grill" class="img-thumbnail">
               <p style="font-size: 30px; text-align: center;">Smokehouse Grill</p></a>
             </div>
             <div class="col-md-1"> </div> 
             <div class="col-md-3">
-                <a href="#">
+                <a href="thegoldenchopsticks">
               <img src="Image/chinese food.png" alt="The Golden Chopsticks" class="img-thumbnail">
               <p style="font-size: 30px; text-align: center;">The Golden Chopsticks</p></a>
             </div>
             <div class="col-md-1"> </div>
             <div class="col-md-3">
-                <a href="#">
+                <a href="sweettoothcafe">
               <img src="Image/coffee.png" alt="Sweet Tooth Cafe" class="img-thumbnail">
               <p style="font-size: 30px; text-align: center;">Sweet Tooth Cafe</p></a>
             </div>
@@ -151,85 +78,4 @@
               
       </div>
     
-    
-    <footer>
-    <!--Footer-->
-    <div class="p-3 mb-2 bg-dark text-secondary">
-        <section>
-        <div class="container text-center text-md-start mt-5">
-          <div class="row mt-3">
-            <div class="col-md-3 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3"></i>PlateMate
-              </h6>
-              <p>
-                Our food delivery service provides food from various restaurants. We do not prepare or serve the food ourselves.
-                 While we take utmost care to ensure timely delivery, quality, safety, and freshness of the food, we cannot guarantee it.
-                  Use the service at your own risk.
-              </p>
-            </div>
-
-            <div class="col-md-2 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">
-                Catergories
-              </h6>
-              <p>
-                <a href="western.html" class="text-reset">Western</a>
-              </p>
-              <p>
-                <a href="chinese.html" class="text-reset">Chinese</a>
-              </p>
-              <p>
-                <a href="thai.html" class="text-reset">Thai</a>
-              </p>
-              <p>
-                <a href="catergories.html" class="text-reset">All</a>
-              </p>
-
-            </div>
-
-            <div class="col-md-3 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">
-                Useful links
-              </h6>
-              <p>
-                <a href="about.html" class="text-reset">About</a>
-              </p>
-              
-              <p>
-                <a href="order.html" class="text-reset">Order Now</a>
-              </p>
-            </div>
-
-            <div class="col-md-4 mx-auto ">
-              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-              <p>City University of Hong Kong, Tat Chee Avenue, Kowloon, Hong Kong SAR.</p>
-              <p>platemate@delivery.com
-              </p>
-              <p> + 852 12345678</p>
-            </div>
-          </div>
-        </div>
-      </section>
-  
-      <div class="text-center p-3" >
-        @2023  All rights reserved by PlateMate 
-        
-      </div>
-
-
-
-
-    </footer>
-
-    
-
-
-      
-      
-      
-      
-    
-      
-      </body>
-      </html>
+      {% endblock %}

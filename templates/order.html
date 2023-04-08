@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <Form method="POST" action="/submit_order0">
+        <select name="category">
+            {% for item in catergories %}
+            <option 
+            ="{{ item[0]}}">{{item[0] }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="restaurant">
+            {% for item in catergories %}
+            <option value="{{ item[0]}}">{{item[0] }}</option>
+            {% endfor %}
+        </select>
+
+
+    </Form>
+    
+            {% endblock %}

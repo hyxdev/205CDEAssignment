@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="about">
+    <div class="row">
+      <div class="col-md-6"><img src="Image/chinese food.png" class="img-fluid">
+        </div>
+    
+        <div class="col-md-6">
+          <h1>The Golden Chopsticks(restaurant id:2)</h1>
+          <h2>menu:
+              <ol>{% for item in foods %}
+                <li>{{item[2],item[3] }}</li>
+                  {% endfor %}</ol>
+          </h2>
+  
+      
+          <form method="POST" action="/submit_order">
+            restaurant id:<br><input id="restaurant_id" name="restaurant_id"  required type="int" /><br>
+            member id:<br><input id="member_id" name="member_id" required type="int"  /><br>
+              <select name="selection">
+                  {% for item in foods %}
+                  <option value="{{ item[2]}}">{{item[2] }}</option>
+                  {% endfor %}
+              </select>
+              <br>(please ensure detail enter correctly)<br>
+              <input type="submit" value="submit">
+          </form>
+        
+          </div>
+      </div>
+  </div>
+
+  {% endblock %}

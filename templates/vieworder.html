@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div style="height: auto; padding: 14px;" class="table" >
+    <h1>View Order</h1>
+    
+    <br><table>
+        <tr>
+        <th>Order No.</th>
+        <th>restaurant id:</th>
+        <th>restaurant name:</th>
+        <th>foodname:</th>
+        </tr>
+        {% for item in foods %}
+            <tr>
+                
+                <td>{{item[0]}}</td>
+                <td>{{item[1]}}</td>
+                <td>{{item[2]}}</td>
+                <td>{{item[3]}} </td>
+                
+            </tr> 
+        {% endfor %} 
+        </table>
+</div>
+
+
+
+{% endblock %}
