@@ -233,12 +233,10 @@ def check_username():
     username = request.form.get('username')
     sql = "SELECT COUNT(*) FROM user WHERE username='"+str(username)+"'"
 
-    #try:
+    
     cursor.execute(sql)
     result =cursor.fetchall()
-    #except:
-    #    db.close()
-    #    return "DB error"
+    
     
 
     if len(username) < 1:
