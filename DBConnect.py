@@ -60,6 +60,28 @@ def vieworder():
     foods = cursor.fetchall()
     return render_template('vieworder.html', foods=foods)
 
+@app.route("/changeorder")
+def changeorder():
+    db = pymysql.connect(host="localhost", user="user",passwd="123", database="PlateMate")
+    cursor = db.cursor()
+
+    sql=("SELECT Porder.order_id, Porder.restaurant_id, restaurant.name,Porder.member_id, Porder.foodname FROM Porder  INNER JOIN restaurant On Porder.restaurant_id = restaurant.restaurant_id WHERE member_id = "+str(session['member_id']))
+    cursor.execute(sql)
+
+    results = cursor.fetchall()
+    return render_template('changeorder.html', results=results)
+
+@app.route("/deleteorder")
+def deleteorder():
+    db = pymysql.connect(host="localhost", user="user",passwd="123", database="PlateMate")
+    cursor = db.cursor()
+
+    sql=("SELECT Porder.order_id, Porder.restaurant_id, restaurant.name,Porder.member_id, Porder.foodname FROM Porder  INNER JOIN restaurant On Porder.restaurant_id = restaurant.restaurant_id WHERE member_id = "+str(session['member_id']))
+    cursor.execute(sql)
+
+    results1 = cursor.fetchall()
+    return render_template('deleteorder.html', results1=results1)
+
 @app.route("/spicygrove")
 def spicygrove():
     db = pymysql.connect(host="localhost", user="user",passwd="123", database="PlateMate")
@@ -182,9 +204,16 @@ def signin():
             member_id = row[0]
             username = row[1]
             password = row[2]
-            
+
             session['member_id'] = member_id
             session['username'] = username
+            
+
+            
+            
+            
+            
+            
             return redirect(url_for('index'))
 
         
@@ -213,6 +242,43 @@ def submit():
         db.rollback()
         db.close()
         return "Order failed!"
+    
+@app.route("/change_order", methods=["POST"])
+def update():
+    
+
+    db = pymysql.connect(host="localhost", user="user",passwd="123", database="PlateMate")
+    cursor = db.cursor()
+    Porder_id = request.form['Porder_id']
+    restaurant_id = request.form['restaurant_id']
+    member_id = request.form['member_id']
+    foodname = request.form.get("foodname")
+    
+
+    sql = "UPDATE `Porder` SET `restaurant_id`= '%s',`member_id`= '%s',`foodname`= '%s' WHERE `order_id`= '%s' " % (restaurant_id, member_id, foodname, Porder_id) 
+    
+    
+    cursor.execute(sql)
+    db.commit()
+    return f"Update successful!" + '<br>' + "<a href = '/changeorder'>Press the this link </a>"
+
+@app.route("/delete_order", methods=["POST"])
+def delete():
+    
+
+    db = pymysql.connect(host="localhost", user="user",passwd="123", database="PlateMate")
+    cursor = db.cursor()
+    Porder_id = request.form['Porder_id']
+
+    
+
+    sql = "DELETE FROM `Porder` WHERE `order_id` = '%s' " % (Porder_id) 
+    
+    
+    cursor.execute(sql)
+    db.commit()
+    return f"delete successful!" + '<br>' + "<a href = '/deleteorder'>Press the this link </a>"
+
 
 
 
@@ -233,12 +299,10 @@ def check_username():
     username = request.form.get('username')
     sql = "SELECT COUNT(*) FROM user WHERE username='"+str(username)+"'"
 
-    #try:
+    
     cursor.execute(sql)
     result =cursor.fetchall()
-    #except:
-    #    db.close()
-    #    return "DB error"
+
     
 
     if len(username) < 1:

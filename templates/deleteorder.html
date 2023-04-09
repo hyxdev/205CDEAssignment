@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+      <div class="col-md-6">
+        <div style="height: auto; padding: 14px;" class="table" >
+            <h1 style="color: red;">Delete Order</h1>
+            
+            <br><table>
+                <tr>
+                <th>Order No.</th>
+                <th>restaurant id:</th>
+                <th>restaurant name:</th>
+                <th>member id:</th>
+                <th>foodname:</th>
+                </tr>
+                {% for item in results1 %}
+                    <tr>
+                        
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}} </td>
+                        <td>{{item[4]}} </td>
+
+
+                        
+                    </tr> 
+                {% endfor %} 
+                </table>
+        </div>
+        </div>
+    
+      <div class="col-md-6">
+        <form method="POST" action="/delete_order">
+            order No.: <br><input id="Porder_id" name="Porder_id"  required type="int" /><br>
+            
+            <br>(please ensure detail enter correctly)<br>
+            <input type="submit" value="submit">
+        </form>
+      </div>
+</div>
+
+      {% endblock %}
+        
